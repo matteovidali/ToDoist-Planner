@@ -1,46 +1,17 @@
+from ToDoistHandling import get_key, get_chores
 from todoist_api_python.api import TodoistAPI
-from os.path import exists
 
-# Checks to make sure file exists (raises default exeption)
-def check_file(filename):
-    if not exists(filename):
-        raise Exception(f"'{filename}' does not exists")
+# TODO:
+# Create a scheduling meathod that will 
+# take the freqency as a per week freqency
+# and automatically adds the chore to the correct section
+# of the project (Chores) and automatically pops a reminder
 
-# Gets the API token from a file (To anonamize key when pushing to github)
-def get_key(filename='.key_file'):
-    check_file(filename)
-    with open(filename, 'r') as f:
-        return f.readline()
-
-# Gets a list of chores as a 2d array
-def get_chores(filename='.chore_list'):
-    check_file(filename)
-    chore_list = []
-    with open(filename, 'r') as f:
-        for line in f:
-            chore_list.append(line.split(','))
-    return chore_list
-
-#TODO Flesh out this function
-def add_chore(filename='.chore_list'):
-    check_file(filename)
-    with open(filename, 'ra'):
-        pass
-    return
-
-#TODO make this add a project (necessity?)
-def add_project(name):
+def schedule():
+    # Figure out which chores should be scheduled ???
+    # If they aren't already on the list, add them to the list
+    # if any are overdue send a push notification
     pass
-
-#TODO This:
-def add_task(api, name, due_string, project):
-       task = api.add_task(
-        content= name,
-        due_string=due_string,
-        due_lang='en',
-        priority=4,
-    )
-
 
 #TODO This:
 def main(key_file):
