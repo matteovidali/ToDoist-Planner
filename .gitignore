@@ -129,5 +129,5 @@ dmypy.json
 .pyre/
 
 # Custom requirements
-keys&creds/
+keys/
 API_chore_list.csv
